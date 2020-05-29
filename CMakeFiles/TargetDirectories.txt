@@ -1,0 +1,3 @@
+/home/zhangjg/Desktop/wacom/CMakeFiles/rebuild_cache.dir
+/home/zhangjg/Desktop/wacom/CMakeFiles/wacom.dir
+/home/zhangjg/Desktop/wacom/CMakeFiles/edit_cache.dir

@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhangjg/Desktop/wacom/device.c
+main.h
+/home/zhangjg/Desktop/wacom/main.h
+
+/home/zhangjg/Desktop/wacom/main.h
+stdio.h
+-
+xorg/input.h
+-
+xorg/list.h
+-
+xorg/optionstr.h
+-
+sys/types.h
+-
+sys/sysmacros.h
+-
+xorg/Xprintf.h
+-
+xorg/xf86.h
+-
+xorg/xf86Xinput.h
+-
+stdarg.h
+-
+string.h
+-
+X11/X.h
+-
+libudev.h
+-
+stdlib.h
+-
+errno.h
+-
+regex.h
+-
+
