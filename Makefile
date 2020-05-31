@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zhangjg/Desktop/wacom
+CMAKE_SOURCE_DIR = /data/home/work/kwin_wacom/kwin_wacom
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zhangjg/Desktop/wacom
+CMAKE_BINARY_DIR = /data/home/work/kwin_wacom/kwin_wacom
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangjg/Desktop/wacom/CMakeFiles /home/zhangjg/Desktop/wacom/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/work/kwin_wacom/kwin_wacom/CMakeFiles /data/home/work/kwin_wacom/kwin_wacom/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangjg/Desktop/wacom/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/work/kwin_wacom/kwin_wacom/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/zhangjg/Desktop/wacom/device.c" "/home/zhangjg/Desktop/wacom/CMakeFiles/wacom.dir/device.c.o"
-  "/home/zhangjg/Desktop/wacom/main.c" "/home/zhangjg/Desktop/wacom/CMakeFiles/wacom.dir/main.c.o"
+  "/data/home/work/kwin_wacom/kwin_wacom/device.c" "/data/home/work/kwin_wacom/kwin_wacom/CMakeFiles/wacom.dir/device.c.o"
+  "/data/home/work/kwin_wacom/kwin_wacom/main.c" "/data/home/work/kwin_wacom/kwin_wacom/CMakeFiles/wacom.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/zhangjg/Desktop/wacom
+# Install script for directory: /data/home/work/kwin_wacom/kwin_wacom
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/zhangjg/Desktop/wacom/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/data/home/work/kwin_wacom/kwin_wacom/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

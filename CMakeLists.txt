@@ -18,6 +18,6 @@ include_directories(${LIBINPUT_INCLUDE_DIRS})
 include_directories(${LIBINPUT_INCLUDE_DIRS})
 include_directories("/usr/include/pixman-1/")
 
-target_link_libraries(${TARGET_NAME} ${LIBINPUT_LIBRARIES} ${LIBUDEV_LIBRARIES})
+target_link_libraries(${TARGET_NAME} ${LIBINPUT_LIBRARIES} ${LIBUDEV_LIBRARIES} dl)
 target_compile_options(${TARGET_NAME} PUBLIC ${LIBINPUT_CFLAGS_OTHER})
 target_compile_options(${TARGET_NAME} PUBLIC ${LIBUDEV_CFLAGS_OTHER})

@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/zhangjg/Desktop/wacom/device.c
+/data/home/work/kwin_wacom/kwin_wacom/device.c
 main.h
-/home/zhangjg/Desktop/wacom/main.h
+/data/home/work/kwin_wacom/kwin_wacom/main.h
 
-/home/zhangjg/Desktop/wacom/main.h
+/data/home/work/kwin_wacom/kwin_wacom/main.h
 stdio.h
 -
 xorg/input.h
@@ -42,5 +42,7 @@ stdlib.h
 errno.h
 -
 regex.h
+-
+dlfcn.h
 -
 

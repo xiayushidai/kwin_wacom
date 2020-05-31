@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <regex.h>
+#include <dlfcn.h>
 
 static void input_option_free(InputOption *o);
 void input_option_free_list(InputOption **opt);
@@ -224,42 +225,10 @@ void xf86AddInputDriver(InputDriverPtr driver, void *module, int flags)  //没�
 void xf86DeleteInputDriver(int drvIndex)
 {
     if (xf86InputDriverList[drvIndex] && xf86InputDriverList[drvIndex]->module)
-        UnloadModule(xf86InputDriverList[drvIndex]->module);
+        //UnloadModule(xf86InputDriverList[drvIndex]->module);
     free(xf86InputDriverList[drvIndex]);
     xf86InputDriverList[drvIndex] = NULL;
 }
-
-InputDriverPtr xf86LookupInputDriver(const char *name)
-{
-    int i;
-    for (i = 0; i < xf86NumInputDrivers; i++) {
-        printf("xf86NumInputDrivers===%s\n",xf86InputDriverList[i]->driverName);
-        if (xf86InputDriverList[i] && xf86InputDriverList[i]->driverName &&
-            xf86NameCmp(name, xf86InputDriverList[i]->driverName) == 0)
-            return xf86InputDriverList[i]; //输入设备驱动列表，这个在哪里初始化？
-    }
-    return NULL;
-}
-
-
-static inline InputDriverPtr
-xf86LoadInputDriver(const char *driver_name)
-{
-    InputDriverPtr drv = NULL;
-
-    /* Memory leak for every attached device if we don't
-     * test if the module is already loaded first */
-    drv = xf86LookupInputDriver(driver_name);
-    if (!drv) {
-        if (xf86LoadOneModule(driver_name, NULL))
-            drv = xf86LookupInputDriver(driver_name);
-    }
-
-    return drv;
-}
-
-
-
 
 int
 xf86nameCompare(const char *s1, const char *s2)
@@ -296,6 +265,61 @@ xf86nameCompare(const char *s1, const char *s2)
     return c1 - c2;
 }
 
+int
+xf86NameCmp(const char *s1, const char *s2)
+{
+    return xf86nameCompare(s1, s2);
+}
+
+InputDriverPtr xf86LookupInputDriver(const char *name)
+{
+    int i;
+    for (i = 0; i < xf86NumInputDrivers; i++) {
+        printf("xf86NumInputDrivers===%s\n",xf86InputDriverList[i]->driverName);
+        if (xf86InputDriverList[i] && xf86InputDriverList[i]->driverName &&
+            xf86NameCmp(name, xf86InputDriverList[i]->driverName) == 0)
+            return xf86InputDriverList[i]; //输入设备驱动列表，这个在哪里初始化？
+    }
+    return NULL;
+}
+
+void *XNFreallocarray(void *ptr, size_t nmemb, size_t size)
+{
+    void *ret = reallocarray(ptr, nmemb, size);
+
+    if (!ret)
+        printf("XNFreallocarray: Out of memory");
+    return ret;
+}
+
+void *
+XNFalloc(unsigned long n)
+{
+    void *r;
+
+    r = malloc(n);
+    if (!r) {
+        perror("malloc failed");
+        exit(1);
+    }
+    return r;
+}
+
+static inline InputDriverPtr
+xf86LoadInputDriver(const char *driver_name)
+{
+    InputDriverPtr drv = NULL;
+
+    /* Memory leak for every attached device if we don't
+     * test if the module is already loaded first */
+    drv = xf86LookupInputDriver(driver_name);
+    if (!drv) {
+        if (xf86LoadOneModule(driver_name, NULL))
+            drv = xf86LookupInputDriver(driver_name);
+    }
+
+    return drv;
+}
 
 XF86OptionPtr xf86findOption(XF86OptionPtr list, const char *name)
 {

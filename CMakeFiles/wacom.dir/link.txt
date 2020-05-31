@@ -1,1 +1,1 @@
-/usr/bin/cc    CMakeFiles/wacom.dir/device.c.o CMakeFiles/wacom.dir/main.c.o  -o wacom -linput -ludev 
+/usr/bin/cc    CMakeFiles/wacom.dir/device.c.o CMakeFiles/wacom.dir/main.c.o  -o wacom -linput -ludev -ldl 
